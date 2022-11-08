@@ -24,11 +24,12 @@ async function bootstrap() {
     //   },
     // });
 
-    const pools = await prisma.pool.count();
-    return pools;
+    const count = await prisma.pool.count();
+
+    return { count };
   });
 
-  await fastify.listen({ port: 3333 });
+await fastify.listen({ port: 3333  });
 }
 
 bootstrap();
